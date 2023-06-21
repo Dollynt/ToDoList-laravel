@@ -16,7 +16,7 @@ class MembroRequest extends FormRequest
         return [
             'nome' => 'required|min:5',
             'email' => 'required|email|unique:membros',
-            'senha' => 'required|min:3',
+
         ];
     }
 }
