@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MembroController;
+use App\Http\Controllers\TarefaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,7 @@ use App\Http\Controllers\MembroController;
 Route::get('/membros', [MembroController::class, 'index'])->name('membros.index');
 Route::get('/membros/create', [MembroController::class, 'create'])->name('membros.create');
 Route::post('/membros', [MembroController::class, 'store'])->name('membros.store');
+Route::get('/tarefas', [TarefaController::class, 'index'])->name('tarefas.index');
+Route::get('/tarefas/create', [TarefaController::class, 'create'])->name('tarefas.create');
+Route::post('/tarefas', [TarefaController::class, 'store'])->name('tarefas.store');
+
