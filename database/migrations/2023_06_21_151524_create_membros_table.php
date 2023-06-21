@@ -19,7 +19,6 @@ class CreateMembrosTable extends Migration
             $table->string('email')->nullable(false)->unique();
             //nome não nulo
             $table->string('nome')->nullable(false);
-            $table->timestamps();
         });
     }
 

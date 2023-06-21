@@ -25,6 +25,8 @@ class CreateTarefasTable extends Migration
             $table->dateTime('data_termino')->nullable();
             //prioridade da tarefa com definição dos valores, e valor padrão baixo caso em branco
             $table->enum('prioridade', ['Baixa', 'Média', 'Alta'])->default('Baixa');
+            //tarefa só pode ser de um único membro
+            $table->foreignId('membro_id')->constrained('membros');
         });
     }
 
