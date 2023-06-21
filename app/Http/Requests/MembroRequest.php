@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class MembroRequest extends FormRequest
 {
+
     public function authorize()
     {
         return true;
