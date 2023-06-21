@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Membro;
 use Illuminate\Http\Request;
+use App\Http\Requests\MembroRequest;
 
 class MembroController extends Controller
 {
@@ -18,6 +19,16 @@ class MembroController extends Controller
         return view('membros.create');
     }
 
+    public function store(MembroRequest  $request)
+    {
+        // Validação dos campos
+        $validatedData = $request->validated();
+
+        // Criação do membro
+        $membro = Membro::create($validatedData);
+
+        return response()->json(['message' => 'Membro cadastrado com sucesso!', 'membro' => $membro], 201);
+    }
 
 }
 
