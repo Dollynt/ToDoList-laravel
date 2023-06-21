@@ -3,32 +3,33 @@
     <title>Cadastro de Membro</title>
 </head>
 <body>
-    <h1>Cadastro de Membro</h1>
+    <h1 id="cadastro">Cadastro de Membro</h1>
 
-    <form method="POST" action="/membros">
+    <form method="POST" action="/membros" id="form">
         @csrf
 
         <div>
             <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required>
+            <input type="text" @error('nome') is-invalid @enderror name="nome" required>
+            <!--mensagem de erro de validação-->
+            @error('nome')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         </div>
 
         <div>
             <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" @error('email') is-invalid @enderror name="email" required>
+            <!--mensagem de erro de validação-->
+            @error('email')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         </div>
 
-        <!--mensagem de erro de validação-->
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
-        <button type="submit">Cadastrar</button>
+        <button type="submit" id="button_submit">Cadastrar</button>
     </form>
 </body>

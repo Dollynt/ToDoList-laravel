@@ -1,4 +1,8 @@
-form {
+#cadastro {
+    text-align: center;
+}
+
+#form {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
@@ -7,9 +11,6 @@ form {
     background-color: #f9f9f9;
 }
 
-h1 {
-    text-align: center;
-}
 
 div {
     margin-bottom: 10px;
@@ -21,9 +22,7 @@ label {
     margin-bottom: 5px;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
+input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -31,7 +30,11 @@ input[type="password"] {
     font-size: 14px;
 }
 
-button[type="submit"] {
+input.is-invalid {
+    background-color: red;
+  }
+
+#button_submit {
     display: block;
     width: 100%;
     padding: 10px;
@@ -43,6 +46,6 @@ button[type="submit"] {
     cursor: pointer;
 }
 
-button[type="submit"]:hover {
+#button_submit:hover {
     background-color: #45a049;
 }
