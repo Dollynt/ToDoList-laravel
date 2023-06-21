@@ -10,7 +10,7 @@
 
         <div>
             <label for="nome">Nome:</label>
-            <input type="text" @error('nome') is-invalid @enderror name="nome" required>
+            <input type="text" class="@error('nome') is-invalid @enderror" name="nome" required>
             <!--mensagem de erro de validação-->
             @error('nome')
                 <span class="invalid-feedback" role="alert">
@@ -21,7 +21,7 @@
 
         <div>
             <label for="email">E-mail:</label>
-            <input type="email" @error('email') is-invalid @enderror name="email" required>
+            <input type="email" class="@error('email') is-invalid @enderror" name="email" required>
             <!--mensagem de erro de validação-->
             @error('email')
                 <span class="invalid-feedback" role="alert">

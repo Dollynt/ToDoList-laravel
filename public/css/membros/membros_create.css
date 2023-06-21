@@ -31,8 +31,12 @@ input {
 }
 
 input.is-invalid {
-    background-color: red;
+    border-color: red;
   }
+
+span {
+    color: red;
+}
 
 #button_submit {
     display: block;
