@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="{{asset('css/membros/membros_create.css')}}">
 <head>
     <title>Cadastro de Membro</title>
 </head>
