@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Requests;
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 use Illuminate\Foundation\Http\FormRequest;
+
 
 class TarefaRequest extends FormRequest
 {
@@ -19,7 +22,15 @@ class TarefaRequest extends FormRequest
             'descricao' => 'max:140',
             'finalizada' => 'required|boolean',
             'data_termino' => 'nullable|date',
-            'prioridade' => 'required|in:Baixa,Média,Alta',
+            'prioridade' => 'in:baixa,media,alta',
         ];
+    }
+
+    protected function failedValidation(Validator $validator)
+    {
+
+        throw new HttpResponseException(response()->json([
+            'errors' => $validator->errors(),
+        ], 422));
     }
 }

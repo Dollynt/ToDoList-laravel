@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tarefa extends Model
 {
+    //laravel obriga ter o timestamps, por isso está setado com falso
+    public $timestamps = false;
+
     protected $fillable = [
         'nome',
         'descricao',

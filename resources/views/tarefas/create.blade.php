@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{asset('css/membros/membros_create.css')}}">
+<link rel="stylesheet" href="{{asset('css/tarefas/tarefas_create.css')}}">
 <head>
     <title>Cadastro de Tarefas</title>
 </head>
@@ -21,7 +21,7 @@
 
         <div>
             <label for="descricao">Descrição:</label>
-            <input type="text" class="@error('descricao') is-invalid @enderror" name="descricao" required>
+            <textarea type="text" class="@error('descricao') is-invalid @enderror" name="descricao"></textarea>
             <!--mensagem de erro de validação-->
             @error('descricao')
                 <span class="invalid-feedback" role="alert">
@@ -33,15 +33,20 @@
         <div>
             <label for="finalizada">Finalizada:</label>
             <select id="finalizada" name="finalizada" required>
-                <option value="false">Não</option>
-                <option value="true">Sim</option>
+                <option value="False">Não</option>
+                <option value="True">Sim</option>
             </select>
+            @error('descricao')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         </div>
 
-        <div>
+        <!--<div>
             <label for="data_termino">Data de término:</label>
             <input type="datetime-local" id="data_termino" name="data_termino">
-        </div>
+        </div>-->
 
         <div>
             <label for="prioridade">Prioridade:</label>
@@ -50,6 +55,11 @@
               <option value="media">Média</option>
               <option value="alta">Alta</option>
             </select>
+            @error('descricao')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         </div>
 
         <button type="submit" id="button_submit">Cadastrar</button>

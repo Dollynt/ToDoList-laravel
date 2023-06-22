@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Tarefa;
 use Illuminate\Http\Request;
+use App\Http\Requests\TarefaRequest;
 
 class TarefaController extends Controller
 {
@@ -17,14 +19,23 @@ class TarefaController extends Controller
         return view('tarefas.create');
     }
 
-    public function store(TarefaRequest $request)
+    public function store(Request $request)
     {
-        // Validação dos campos
-        $validatedData = $request->validated();
 
-        // Criação da tarefa
-        $tarefa = Tarefa::create($validatedData);
+        $tarefa = new Tarefa();
+        $tarefa->nome = $request->nome;
+        $tarefa->descricao = $request->descricao;
+        $tarefa->finalizada = filter_var($request->finalizada, FILTER_VALIDATE_BOOLEAN);
+        $tarefa->data_termino = $request->finalizada ? now() : null;
+        $tarefa->prioridade = $request->prioridade ?? 'Baixa';
+        $tarefa->membro_id = 1; //provisório
 
-        return redirect()->route('tarefas.show', $tarefa->id);
+        if (!$tarefa->finalizada) {
+            $tarefa->data_termino = null; // Define a data de término como null se a tarefa não foi finalizada
+        }
+
+        $tarefa->save();
+
+        return response()->json(['message' => 'Tarefa cadastrada com sucesso!', 'tarefa' => $tarefa], 201);
     }
 }
