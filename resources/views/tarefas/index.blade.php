@@ -1,3 +1,11 @@
+<?php
+    $obfuscatedData = base64_encode(json_encode($tarefas));
+?>
+<script>
+    var dados = JSON.parse(atob("<?php echo $obfuscatedData; ?>"));
+</script>
+<!--ofuscar dados para passar ao javascript, nao mostrar dados ao inspecionar página-->
+
 <head>
     <title>Listagem de Tarefas</title>
     <link rel="stylesheet" href="{{asset('css/tarefas/tarefas_list.css')}}">
@@ -24,26 +32,6 @@
             </div>
         @endforeach
     </div>
-
-    <script>
-        //pegar os dados do controller e usar no javascript
-        var dados = {!! json_encode($tarefas) !!};
-        function show(){
-            var description_element = event.target.parentNode.parentNode.querySelector('.task-description');
-            var taskId = parseInt(description_element.dataset.taskId);
-            var index = dados.findIndex(task => task.id === (taskId))
-            var description = dados[index].descricao
-            if (description === null){
-                description = ''
-            }
-
-            description_element.innerText = 'Descrição:\n'+description
-            if (description_element.style.display === 'none') {
-                description_element.style.display = 'block'
-            } else {
-                description_element.style.display = 'none'
-            }
-
-        }
+    <script src="js/tarefas/index.js">
     </script>
 </body>
