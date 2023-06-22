@@ -1,0 +1,28 @@
+.task {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.task-name {
+    font-weight: bold;
+}
+
+.task-priority {
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.task-status {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.task-description {
+    margin-top: 5px;
+}
