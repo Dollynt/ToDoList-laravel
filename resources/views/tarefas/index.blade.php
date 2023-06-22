@@ -30,8 +30,9 @@
         var dados = {!! json_encode($tarefas) !!};
         function show(){
             var description_element = event.target.parentNode.parentNode.querySelector('.task-description');
-            var taskId = description_element.dataset.taskId;
-            var description = dados[taskId - 1].descricao
+            var taskId = parseInt(description_element.dataset.taskId);
+            var index = dados.findIndex(task => task.id === (taskId))
+            var description = dados[index].descricao
             if (description === null){
                 description = ''
             }
