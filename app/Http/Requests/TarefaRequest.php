@@ -20,7 +20,7 @@ class TarefaRequest extends FormRequest
         return [
             'nome' => 'required|min:5|max:50',
             'descricao' => 'max:140',
-            'finalizada' => 'required|boolean',
+            'finalizada' => 'required',
             'data_termino' => 'nullable|date',
             'prioridade' => 'in:baixa,media,alta',
         ];

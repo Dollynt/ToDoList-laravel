@@ -19,7 +19,7 @@ class TarefaController extends Controller
         return view('tarefas.create');
     }
 
-    public function store(Request $request)
+    public function store(TarefaRequest $request)
     {
 
         $tarefa = new Tarefa();
@@ -54,6 +54,10 @@ class TarefaController extends Controller
             return response()->json(['message' => 'Tarefa excluida com sucesso'], 200);
         }
         return response()->json(['message' => 'Erro ao excluir tarefa'], 400);
+    }
 
+    public function edit($taskId)
+    {
+        $tarefa = Tarefa::findOrFail($taskId);
     }
 }
