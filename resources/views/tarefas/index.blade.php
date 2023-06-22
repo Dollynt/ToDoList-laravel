@@ -26,6 +26,7 @@
     </div>
 
     <script>
+        //pegar os dados do controller e usar no javascript
         var dados = {!! json_encode($tarefas) !!};
         function show(){
             var description_element = event.target.parentNode.parentNode.querySelector('.task-description');
