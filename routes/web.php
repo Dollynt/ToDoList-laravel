@@ -21,6 +21,6 @@ Route::post('/membros', [MembroController::class, 'store'])->name('membros.store
 Route::get('/tarefas', [TarefaController::class, 'index'])->name('tarefas.index');
 Route::get('/tarefas/create', [TarefaController::class, 'create'])->name('tarefas.create');
 Route::post('/tarefas', [TarefaController::class, 'store'])->name('tarefas.store');
-Route::get('/tarefas/:tarefa-id', [TarefaController::class, 'show'])->name('tarefas.show');
-Route::put('/tarefas/:tarefa-id', [TarefaController::class, 'edit'])->name('tarefas.edit');
+Route::get('/tarefas/{tarefaId}', [TarefaController::class, 'show'])->name('tarefas.show');
+Route::put('/tarefas/{tarefaId}', [TarefaController::class, 'edit'])->name('tarefas.edit');
 

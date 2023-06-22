@@ -38,4 +38,11 @@ class TarefaController extends Controller
 
         return response()->json(['message' => 'Tarefa cadastrada com sucesso!', 'tarefa' => $tarefa], 201);
     }
+
+    public function show($taskId)
+    {
+        $tarefa = Tarefa::findOrFail($taskId);
+
+        return view('tarefas.show', compact('tarefa'));
+    }
 }
