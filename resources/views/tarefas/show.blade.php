@@ -45,9 +45,9 @@
         <div>
             <label for="prioridade">Prioridade:</label>
             <select id="prioridade" name="prioridade">
-                <option value="Baixa" {{ $tarefa->prioridade == 'Baixa' ? 'selected' : '' }}>Baixa</option>
-                <option value="Média" {{ $tarefa->prioridade == 'Média' ? 'selected' : '' }}>Média</option>
-                <option value="Alta" {{ $tarefa->prioridade == 'Alta' ? 'selected' : '' }}>Alta</option>
+                <option value="baixa" {{ $tarefa->prioridade == 'Baixa' ? 'selected' : '' }}>Baixa</option>
+                <option value="media" {{ $tarefa->prioridade == 'Média' ? 'selected' : '' }}>Média</option>
+                <option value="alta" {{ $tarefa->prioridade == 'Alta' ? 'selected' : '' }}>Alta</option>
             </select>
         </div>
 

@@ -56,8 +56,20 @@ class TarefaController extends Controller
         return response()->json(['message' => 'Erro ao excluir tarefa'], 400);
     }
 
-    public function edit($taskId)
+    public function edit(TarefaRequest $request, $taskId)
     {
         $tarefa = Tarefa::findOrFail($taskId);
+
+        $tarefa->nome = $request->nome;
+        $tarefa->descricao = $request->descricao;
+        $tarefa->finalizada = filter_var($request->finalizada, FILTER_VALIDATE_BOOLEAN);
+        $tarefa->prioridade = $request->prioridade;
+
+        $save = $tarefa->save();
+
+        if ($save) {
+            return response()->json(['message' => 'Tarefa atualizada com sucesso'], 200);
+        }
+        return response()->json(['message' => 'Erro ao atualizar tarefa'], 400);
     }
 }
