@@ -1,13 +1,13 @@
 <head>
     <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="{{asset('css/homepage/homepage.css')}}">
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="/home">Home</a></li>
-                <li><a href="#">Cadastro de Membros</a></li>
+                <li><a href="/homepage">Home</a></li>
+                <li><a href="/membros/create">Cadastro de Membros</a></li>
                 <li><a href="#">Lista de Tarefas</a></li>
             </ul>
         </nav>
@@ -19,7 +19,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2023 Nome da Empresa. Todos os direitos reservados.</p>
+        <p>&copy; 2023 LuizGuylherme</p>
     </footer>
 </body>
 </html>
