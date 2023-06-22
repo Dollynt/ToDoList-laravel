@@ -44,7 +44,7 @@ h1 {
     margin-top: 10px;
 }
 
-.task-actions button {
+.action-button, .edit-link {
     display: inline-block;
     padding: 5px 10px;
     margin-right: 5px;

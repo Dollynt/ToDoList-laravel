@@ -13,8 +13,8 @@
                 <div class="task-status">Finalizada: {{ $tarefa->finalizada ? 'Sim' : 'Não' }}</div>
                 <div class="task-description" data-task-id="{{ $tarefa->id }}" style="display:none"></div>
                 <div class="task-actions">
-                    <button onclick="show()">Visualizar
-                    <button href="#">Editar
+                    <button class="action-button" onclick="show()">Visualizar</button>
+                    <a href="{{ route('tarefas.show', ['tarefaId' => $tarefa->id]) }}" class="edit-link">Editar</a>
                     <form action="#" method="POST" class="delete-form">
                         @csrf
                         @method('DELETE')
