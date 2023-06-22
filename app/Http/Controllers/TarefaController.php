@@ -45,4 +45,15 @@ class TarefaController extends Controller
 
         return view('tarefas.show', compact('tarefa'));
     }
+
+    public function delete($taskId)
+    {
+        $tarefa = Tarefa::findOrFail($taskId);
+        $delete = $tarefa->delete();
+        if($delete) {
+            return response()->json(['message' => 'Tarefa excluida com sucesso'], 200);
+        }
+        return response()->json(['message' => 'Erro ao excluir tarefa'], 400);
+
+    }
 }
