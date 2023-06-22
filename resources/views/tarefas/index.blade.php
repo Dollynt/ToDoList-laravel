@@ -1,11 +1,12 @@
+<!--ofuscar dados para passar ao javascript, nao mostrar dados ao inspecionar página-->
 <?php
     $obfuscatedData = base64_encode(json_encode($tarefas));
 ?>
 <script>
     var dados = JSON.parse(atob("<?php echo $obfuscatedData; ?>"));
 </script>
-<!--ofuscar dados para passar ao javascript, nao mostrar dados ao inspecionar página-->
 
+<!--resto do html-->
 <head>
     <title>Listagem de Tarefas</title>
     <link rel="stylesheet" href="{{asset('css/tarefas/tarefas_list.css')}}">
