@@ -23,4 +23,6 @@ Route::get('/tarefas/create', [TarefaController::class, 'create'])->name('tarefa
 Route::post('/tarefas', [TarefaController::class, 'store'])->name('tarefas.store');
 Route::get('/tarefas/{tarefaId}', [TarefaController::class, 'show'])->name('tarefas.show');
 Route::put('/tarefas/{tarefaId}', [TarefaController::class, 'edit'])->name('tarefas.edit');
+Route::delete('/tarefas/{tarefaId}', [TarefaController::class, 'delete'])->name('tarefas.delete');
+
 
