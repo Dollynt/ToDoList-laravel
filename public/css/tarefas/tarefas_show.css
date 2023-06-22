@@ -1,28 +1,85 @@
-.task {
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-    max-width: 600px;
+#cadastro {
+    text-align: center;
+}
+
+#form {
+    max-width: 400px;
     margin: 0 auto;
     padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
 }
 
-.task-name {
+
+div {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
     font-weight: bold;
+    margin-bottom: 5px;
 }
 
-.task-priority {
-    margin-top: 5px;
-    font-style: italic;
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
 }
 
-.task-status {
-    margin-top: 5px;
-    font-weight: bold;
+input.is-invalid {
+    border-color: red;
 }
 
-.task-description {
-    margin-top: 5px;
+textarea {
+    width: 100%;
+    height: 60px;
+    resize: none;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+  }
+
+span {
+    color: red;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+#button_submit {
+    display: inline-block;
+    width: 49.5%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.delete-button {
+    display: inline-block;
+    width: 49.5%;
+    padding: 10px;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#button_submit:hover {
+    background-color: #45a049;
 }
