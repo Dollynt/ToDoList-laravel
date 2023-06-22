@@ -11,10 +11,10 @@
                 <div class="task-name">{{ $tarefa->nome }}</div>
                 <div class="task-priority">Prioridade: {{ $tarefa->prioridade }}</div>
                 <div class="task-status">Finalizada: {{ $tarefa->finalizada ? 'Sim' : 'Não' }}</div>
-                <div class="task-description">{{ $tarefa->descricao }}</div>
+                <div class="task-description" data-task-id="{{ $tarefa->id }}" style="display:none"></div>
                 <div class="task-actions">
-                    <a onclick="show()">Visualizar</a>
-                    <a href="#">Editar</a>
+                    <button onclick="show()">Visualizar
+                    <button href="#">Editar
                     <form action="#" method="POST" class="delete-form">
                         @csrf
                         @method('DELETE')
@@ -25,6 +25,23 @@
         @endforeach
     </div>
 
+    <script>
+        var dados = {!! json_encode($tarefas) !!};
+        function show(){
+            var description_element = event.target.parentNode.parentNode.querySelector('.task-description');
+            var taskId = description_element.dataset.taskId;
+            var description = dados[taskId - 1].descricao
+            if (description === null){
+                description = ''
+            }
 
-    <script src="{{ asset('js/tarefas/tarefas_list.js') }}"></script>
+            description_element.innerText = 'Descrição:\n'+description
+            if (description_element.style.display === 'none') {
+                description_element.style.display = 'block'
+            } else {
+                description_element.style.display = 'none'
+            }
+
+        }
+    </script>
 </body>
