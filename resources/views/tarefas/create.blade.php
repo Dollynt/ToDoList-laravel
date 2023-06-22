@@ -43,11 +43,6 @@
             @enderror
         </div>
 
-        <!--<div>
-            <label for="data_termino">Data de término:</label>
-            <input type="datetime-local" id="data_termino" name="data_termino">
-        </div>-->
-
         <div>
             <label for="prioridade">Prioridade:</label>
             <select id="prioridade" name="prioridade">
