@@ -13,7 +13,7 @@
                 <div class="task-status">Finalizada: {{ $tarefa->finalizada ? 'Sim' : 'Não' }}</div>
                 <div class="task-description">{{ $tarefa->descricao }}</div>
                 <div class="task-actions">
-                    <a href="#">Visualizar</a>
+                    <a onclick="show()">Visualizar</a>
                     <a href="#">Editar</a>
                     <form action="#" method="POST" class="delete-form">
                         @csrf
@@ -26,5 +26,5 @@
     </div>
 
 
-    <script src="{{ asset('js/script.js') }}"></script>
+    <script src="{{ asset('js/tarefas/tarefas_list.js') }}"></script>
 </body>
