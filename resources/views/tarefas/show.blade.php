@@ -4,10 +4,10 @@
 </head>
 <body>
     <h1 id="cadastro">Edição de Tarefa</h1>
-
-    <form method="POST" action="/tarefas/{{$tarefa->id}}" id="form">
+    <div id="form">
+    <form method="POST" action="/tarefas/{{$tarefa->id}}" id="edit-form">
         @csrf
-
+        @method('PUT')
         <div>
             <label for="nome">Nome da tarefa:</label>
             <input type="text" class="@error('nome') is-invalid @enderror" name="nome" value="{{$tarefa->nome}}">
@@ -51,10 +51,13 @@
             </select>
         </div>
 
+
         <button type="submit" id="button_submit">Salvar</button>
+    </form>
+    <form method="POST" action="/tarefas/{{$tarefa->id}}" id="delete-form">
+        @csrf
         @method('DELETE')
         <button type="submit" class="delete-button">Excluir</button>
-
-
     </form>
+    </div>
 </body>
