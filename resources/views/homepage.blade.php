@@ -8,7 +8,7 @@
             <ul>
                 <li><a href="/homepage">Home</a></li>
                 <li><a href="/membros/create">Cadastro de Membros</a></li>
-                <li><a href="#">Lista de Tarefas</a></li>
+                <li><a href="/tarefas">Lista de Tarefas</a></li>
             </ul>
         </nav>
     </header>
