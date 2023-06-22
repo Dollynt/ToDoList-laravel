@@ -14,7 +14,7 @@ use App\Http\Controllers\TarefaController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/homepage', [HomePageController::class, 'index'])->name('homepage.index');
 Route::get('/membros', [MembroController::class, 'index'])->name('membros.index');
 Route::get('/membros/create', [MembroController::class, 'create'])->name('membros.create');
 Route::post('/membros', [MembroController::class, 'store'])->name('membros.store');
