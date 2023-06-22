@@ -13,7 +13,10 @@
 </head>
 <body>
     <h1>Listagem de Tarefas</h1>
-    <a href="{{ route('tarefas.create') }}" class="create-task-link">Criar Nova Tarefa</a>
+    <div class="create-task-container">
+        <a href="{{ route('tarefas.create') }}" class="create-task-link">Criar Nova Tarefa</a>
+    </div>
+
     <div class="task-list">
         @foreach($tarefas as $tarefa)
             <div class="task">

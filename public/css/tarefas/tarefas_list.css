@@ -72,9 +72,19 @@ h1 {
 }
 
 .create-task-link {
-    display: block;
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #0019d6;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    border: none;
+    font-size: 14px;
     text-align: center;
-    margin-top: 20px;
+    width: auto;
+}
+.create-task-container {
+    text-align: center;
 }
 
 .task-description {
