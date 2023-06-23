@@ -46,6 +46,10 @@ class TarefaController extends Controller
     {
         $tarefa = Tarefa::findOrFail($taskId);
 
+        //verifica se membro logado é dono da tarefa
+        if ($tarefa->membro_id !== session()->get('membro_id')) {
+            abort(403);
+        }
 
         return view('tarefas.show', compact('tarefa'));
     }
