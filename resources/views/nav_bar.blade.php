@@ -10,6 +10,13 @@
                 <li><a href="/membros/create">Cadastro de Membros</a></li>
                 <li><a href="/tarefas">Lista de Tarefas</a></li>
                 <li><a href="/tarefas/create">Cadastro de Tarefas</a></li>
+                <li>
+                    <form method="POST" action="/logout">
+                        @csrf
+                        <button type="submit" class="logout-button">Logout</button>
+                  </form>
+                </li>
+
             </ul>
         </nav>
     </header>
