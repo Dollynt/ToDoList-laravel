@@ -36,7 +36,7 @@
                 <div class="task-actions">
                     <button class="action-button" onclick="show()">Visualizar</button>
                     <a href="{{ route('tarefas.show', ['tarefaId' => $tarefa->id]) }}" class="edit-link">Editar</a>
-                    <form action="#" method="POST" class="delete-form">
+                    <form method="POST" action="/tarefas/{{$tarefa->id}}"  class="delete-form">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="delete-button">Excluir</button>
