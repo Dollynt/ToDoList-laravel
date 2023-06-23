@@ -22,7 +22,16 @@
             <div class="task">
                 <div class="task-name">{{ $tarefa->nome }}</div>
                 <div class="task-priority">Prioridade: {{ $tarefa->prioridade }}</div>
-                <div class="task-status">Finalizada: {{ $tarefa->finalizada ? 'Sim' : 'Não' }}</div>
+                <form action="{{ route('tarefas.edit', ['tarefaId' => $tarefa->id]) }}" method="POST" class="task-form">
+                    @csrf
+                    @method('PUT')
+                    <label for="edit-status" class="task-status">Finalizada:</label>
+                    <select id="finalizada" name="finalizada" required {{ $tarefa->finalizada ? 'disabled' : '' }}>
+                        <option value="False" {{ $tarefa->finalizada ? '' : 'selected' }}>Não</option>
+                        <option value="True" {{ $tarefa->finalizada ? 'selected' : '' }}>Sim</option>
+                    </select>
+                    <button class="save-button" style="display: none;">Salvar</button>
+                </form>
                 <div class="task-description" data-task-id="{{ $tarefa->id }}" style="display:none"></div>
                 <div class="task-actions">
                     <button class="action-button" onclick="show()">Visualizar</button>
@@ -36,6 +45,5 @@
             </div>
         @endforeach
     </div>
-    <script src="js/tarefas/index.js">
-    </script>
+    <script src="js/tarefas/index.js"></script>
 </body>

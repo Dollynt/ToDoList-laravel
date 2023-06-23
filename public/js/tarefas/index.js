@@ -1,3 +1,17 @@
+document.addEventListener('DOMContentLoaded', function() {
+    var selectElement = document.getElementById('finalizada');
+    var saveButton = document.querySelector('.save-button');
+
+    selectElement.addEventListener('change', function() {
+      if (selectElement.value === "{{ $tarefa->finalizada }}") {
+        saveButton.style.display = 'none';
+      } else {
+        saveButton.style.display = selectElement.value === 'True' ? 'inline-block' : 'none';
+      }
+    });
+  });
+
+
 function show(){
     var description_element = event.target.parentNode.parentNode.querySelector('.task-description');
     var taskId = parseInt(description_element.dataset.taskId);
