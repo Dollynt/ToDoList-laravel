@@ -55,6 +55,7 @@
                     <div class="task-status">Finalizada: {{ $tarefa->finalizada ? 'Sim' : 'Não' }}</div>
                 @endif
                 <div class="task-description" data-task-id="{{ $tarefa->id }}" style="display:none"></div>
+                <div class="task-finalized" style="display:none"></div>
                 <div class="task-actions">
                     <button class="action-button" onclick="show()">Visualizar</button>
                     @if ($tarefa->membro_id === $membroId)

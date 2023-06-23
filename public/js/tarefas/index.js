@@ -46,17 +46,25 @@ function showTarefaMembro(membroId) {
 
 function show(){
     var description_element = event.target.parentNode.parentNode.querySelector('.task-description');
+    var termino_element = event.target.parentNode.parentNode.querySelector('.task-finalized');
     var taskId = parseInt(description_element.dataset.taskId);
     var index = dados.findIndex(task => task.id === (taskId))
     var description = dados[index].descricao
+    var data_termino = dados[index].data_termino
     if (description === null){
         description = ''
     }
+    if (data_termino === null){
+        data_termino = ''
+    }
 
-    description_element.innerText = 'Descrição:\n'+description
-    if (description_element.style.display === 'none') {
+    description_element.innerHTML = '<strong>Descrição:</strong><br>' + description;
+    termino_element.innerHTML = '<strong>Data Término:</strong>' + data_termino;
+    if (description_element.style.display === 'none' & termino_element.style.display === 'none') {
         description_element.style.display = 'block'
+        termino_element.style.display = 'block'
     } else {
+        termino_element.style.display = 'none'
         description_element.style.display = 'none'
     }
 
