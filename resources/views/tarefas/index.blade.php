@@ -26,7 +26,7 @@
                     @csrf
                     @method('PUT')
                     <label for="edit-status" class="task-status">Finalizada:</label>
-                    <select id="finalizada" name="finalizada" required {{ $tarefa->finalizada ? 'disabled' : '' }}>
+                    <select id="finalizada" name="finalizada" onchange="finalizadaChange(this)" required {{ $tarefa->finalizada ? 'disabled' : '' }}>
                         <option value="False" {{ $tarefa->finalizada ? '' : 'selected' }}>Não</option>
                         <option value="True" {{ $tarefa->finalizada ? 'selected' : '' }}>Sim</option>
                     </select>

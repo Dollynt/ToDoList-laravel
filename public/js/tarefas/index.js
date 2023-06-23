@@ -1,15 +1,11 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var selectElement = document.getElementById('finalizada');
-    var saveButton = document.querySelector('.save-button');
-
-    selectElement.addEventListener('change', function() {
-      if (selectElement.value === "{{ $tarefa->finalizada }}") {
+function finalizadaChange(selectElement) {
+    var saveButton = selectElement.parentElement.querySelector('.save-button');
+    if (selectElement.value === "{{ $tarefa->finalizada }}") {
         saveButton.style.display = 'none';
-      } else {
+    } else {
         saveButton.style.display = selectElement.value === 'True' ? 'inline-block' : 'none';
-      }
-    });
-  });
+    }
+}
 
 
 function show(){
