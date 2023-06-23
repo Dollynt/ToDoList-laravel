@@ -63,7 +63,13 @@ class TarefaController extends Controller
         $tarefa->nome = $request->nome;
         $tarefa->descricao = $request->descricao;
         $tarefa->finalizada = filter_var($request->finalizada, FILTER_VALIDATE_BOOLEAN);
+        $tarefa->data_termino = $request->finalizada ? now() : null;
         $tarefa->prioridade = $request->prioridade;
+
+        //define a data de término como null se a tarefa não foi finalizada
+        if (!$tarefa->finalizada) {
+            $tarefa->data_termino = null;
+        }
 
         $save = $tarefa->save();
 
