@@ -1,4 +1,3 @@
-<!--ofuscar dados para passar ao javascript, nao mostrar dados ao inspecionar página-->
 <?php
     $obfuscatedData = base64_encode(json_encode($tarefas));
 ?>
@@ -6,12 +5,12 @@
     var dados = JSON.parse(atob("<?php echo $obfuscatedData; ?>"));
 </script>
 
-<!--resto do html-->
-<head>
-    <title>Listagem de Tarefas</title>
-    <link rel="stylesheet" href="{{asset('css/tarefas/tarefas_list.css')}}">
-</head>
-<body>
+@extends('nav_bar')
+
+@section('title', 'Listagem de Tarefas')
+
+@section('content')
+    <link rel="stylesheet" href="{{ asset('css/tarefas/tarefas_list.css') }}">
     <h1>Listagem de Tarefas</h1>
     <div class="create-task-container">
         <a href="{{ route('tarefas.create') }}" class="create-task-link">Criar Nova Tarefa</a>
@@ -46,4 +45,4 @@
         @endforeach
     </div>
     <script src="js/tarefas/index.js"></script>
-</body>
+@endsection
