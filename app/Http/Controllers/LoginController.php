@@ -44,4 +44,12 @@ class LoginController extends Controller
         return redirect()->intended('/homepage');
 
     }
+
+    public function logout(Request $request)
+    {
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/login');
+    }
 }
