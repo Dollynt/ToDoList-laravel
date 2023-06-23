@@ -11,6 +11,7 @@ class MembroRequest extends FormRequest
         return [
             'nome.min' => 'O campo nome deve ter no mínimo :min caracteres.',
             'email.unique' => 'O email informado já está em uso.',
+            'senha.min' => 'O campo senha deve ter no mínimo :min caracteres.'
         ];
     }
 
@@ -24,6 +25,7 @@ class MembroRequest extends FormRequest
         return [
             'nome' => 'required|min:5',
             'email' => 'required|email|unique:membros',
+            'senha' => 'required|min:3'
 
         ];
     }
