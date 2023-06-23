@@ -35,8 +35,16 @@ class MembroController extends Controller
             return response()->json(['message' => 'Membro cadastrado com sucesso!', 'membro' => $membro], 201);
         }
         return response()->json(['message' => 'Erro ao cadastrar membro!'], 400);
+    }
 
+    function edit(Request $request, $membroId) {
+        $membro = Membro::findOrFail($membroId);
 
+        return view('membros.edit', compact('membro'));
+    }
+
+    function update() {
+        return
     }
 
 }
