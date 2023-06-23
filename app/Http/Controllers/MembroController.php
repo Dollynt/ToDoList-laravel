@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Membro;
 use Illuminate\Http\Request;
 use App\Http\Requests\MembroRequest;
+use Illuminate\Support\Facades\Hash;
 
 class MembroController extends Controller
 {
@@ -22,12 +23,20 @@ class MembroController extends Controller
     public function store(MembroRequest  $request)
     {
         // Validação dos campos
-        $validatedData = $request->validated();
+        $membro = new Membro;
+        $membro->nome = $request->nome;
+        $membro->email = $request->email;
+        $membro->senha = Hash::make($request->senha);
 
-        // Criação do membro
-        $membro = Membro::create($validatedData);
+        //criação do membro
+        $save = $membro->save();
 
-        return response()->json(['message' => 'Membro cadastrado com sucesso!', 'membro' => $membro], 201);
+        if($save) {
+            return response()->json(['message' => 'Membro cadastrado com sucesso!', 'membro' => $membro], 201);
+        }
+        return response()->json(['message' => 'Erro ao cadastrar membro!'], 400);
+
+
     }
 
 }
