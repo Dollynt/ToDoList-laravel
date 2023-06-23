@@ -12,6 +12,10 @@ class LoginController extends Controller
 {
     public function index()
     {
+        // if (session()->has('membro_id')) {
+        //     // O membro está autenticado, redirecione para a página inicial
+        //     return redirect('/homepage');
+        // }
         return view('login.index');
     }
 
@@ -20,6 +24,7 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'senha');
         $membro = Membro::where('email', $credentials['email'])->first();
 
+        //verifica se as credenciais batem
         if (!$membro || !Hash::check($credentials['senha'], $membro->senha)) {
             $errors = [];
 
@@ -32,7 +37,10 @@ class LoginController extends Controller
             return back()->withErrors($errors)->withInput();
         }
 
+        //armazena o id do membro na sessão
+        $request->session()->put('membro_id', $membro->id);
         Session::flash('success', 'Login realizado com sucesso!');
+
         return redirect()->intended('/homepage');
 
     }
