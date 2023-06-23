@@ -1,8 +1,9 @@
-<link rel="stylesheet" href="{{asset('css/tarefas/tarefas_create.css')}}">
-<head>
-    <title>Cadastro de Tarefas</title>
-</head>
-<body>
+@extends('nav_bar')
+
+@section('title', 'Cadastro de Tarefas')
+
+@section('content')
+    <link rel="stylesheet" href="{{ asset('css/tarefas/tarefas_create.css') }}">
     <h1 id="cadastro">Cadastro de Tarefas</h1>
 
     <form method="POST" action="/tarefas" id="form">
@@ -46,9 +47,9 @@
         <div>
             <label for="prioridade">Prioridade:</label>
             <select id="prioridade" name="prioridade">
-              <option value="baixa" selected>Baixa</option>
-              <option value="media">Média</option>
-              <option value="alta">Alta</option>
+                <option value="baixa" selected>Baixa</option>
+                <option value="media">Média</option>
+                <option value="alta">Alta</option>
             </select>
             @error('descricao')
                 <span class="invalid-feedback" role="alert">
@@ -59,4 +60,4 @@
 
         <button type="submit" id="button_submit">Cadastrar</button>
     </form>
-</body>
+@endsection
