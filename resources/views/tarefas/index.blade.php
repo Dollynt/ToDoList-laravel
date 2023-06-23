@@ -40,16 +40,20 @@
             <div class="task" data-member-id="{{ $tarefa->membro_id }}">
                 <div class="task-name">{{ $tarefa->nome }}</div>
                 <div class="task-priority">Prioridade: {{ $tarefa->prioridade }}</div>
-                <form action="{{ route('tarefas.finalizada_update', ['tarefaId' => $tarefa->id]) }}" method="POST" class="task-form">
-                    @csrf
-                    @method('PUT')
-                    <label for="edit-status" class="task-status">Finalizada:</label>
-                    <select id="finalizada" name="finalizada" onchange="finalizadaChange(this)" required {{ $tarefa->finalizada ? 'disabled' : '' }}>
-                        <option value="False" {{ $tarefa->finalizada ? '' : 'selected' }}>Não</option>
-                        <option value="True" {{ $tarefa->finalizada ? 'selected' : '' }}>Sim</option>
-                    </select>
-                    <button class="save-button" style="display: none;">Salvar</button>
-                </form>
+                @if ($tarefa->membro_id === $membroId)
+                    <form action="{{ route('tarefas.finalizada_update', ['tarefaId' => $tarefa->id]) }}" method="POST" class="task-form">
+                        @csrf
+                        @method('PUT')
+                        <label for="edit-status" class="task-status">Finalizada:</label>
+                        <select id="finalizada" name="finalizada" onchange="finalizadaChange(this)" required {{ $tarefa->finalizada ? 'disabled' : '' }}>
+                            <option value="False" {{ $tarefa->finalizada ? '' : 'selected' }}>Não</option>
+                            <option value="True" {{ $tarefa->finalizada ? 'selected' : '' }}>Sim</option>
+                        </select>
+                        <button class="save-button" style="display: none;">Salvar</button>
+                    </form>
+                @else
+                    <div class="task-status">Finalizada: {{ $tarefa->finalizada ? 'Sim' : 'Não' }}</div>
+                @endif
                 <div class="task-description" data-task-id="{{ $tarefa->id }}" style="display:none"></div>
                 <div class="task-actions">
                     <button class="action-button" onclick="show()">Visualizar</button>
