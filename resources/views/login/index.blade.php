@@ -31,6 +31,6 @@
         </div>
 
 
-        <button type="submit" id="button_submit">Logar</button>
+        <button type="submit" id="button_submit">Entrar</button>
     </form>
 </body>
