@@ -22,6 +22,7 @@ Route::get('/membros/create', [MembroController::class, 'create'])->name('membro
 Route::post('/membros', [MembroController::class, 'store'])->name('membros.store');
 
 Route::middleware(['custom.auth'])->group(function () {
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/homepage', [HomePageController::class, 'index'])->name('homepage.index');
     Route::get('/membros', [MembroController::class, 'index'])->name('membros.index');
     Route::get('/tarefas', [TarefaController::class, 'index'])->name('tarefas.index');
