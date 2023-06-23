@@ -19,6 +19,8 @@ class CreateMembrosTable extends Migration
             $table->string('email')->nullable(false)->unique();
             //nome não nulo
             $table->string('nome')->nullable(false);
+            //senha não nula com no mínimo 3 caracteres
+            $table->string('senha')->nullable(false)->min(3);
         });
     }
 
