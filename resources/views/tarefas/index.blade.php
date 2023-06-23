@@ -53,12 +53,14 @@
                 <div class="task-description" data-task-id="{{ $tarefa->id }}" style="display:none"></div>
                 <div class="task-actions">
                     <button class="action-button" onclick="show()">Visualizar</button>
-                    <a href="{{ route('tarefas.show', ['tarefaId' => $tarefa->id]) }}" class="edit-link">Editar</a>
-                    <form method="POST" action="/tarefas/{{$tarefa->id}}"  class="delete-form">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="delete-button">Excluir</button>
-                    </form>
+                    @if ($tarefa->membro_id === $membroId)
+                        <a href="{{ route('tarefas.show', ['tarefaId' => $tarefa->id]) }}" class="edit-link">Editar</a>
+                        <form method="POST" action="/tarefas/{{$tarefa->id}}"  class="delete-form">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="delete-button">Excluir</button>
+                        </form>
+                    @endif
                 </div>
             </div>
         @endforeach

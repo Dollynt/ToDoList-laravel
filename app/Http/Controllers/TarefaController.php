@@ -14,7 +14,7 @@ class TarefaController extends Controller
     {
         $tarefas = Tarefa::all();
         $membros = Membro::getMembros();
-        return view('tarefas.index', compact('tarefas', 'membros'));
+        return view('tarefas.index', compact('tarefas', 'membros'))->with('membroId', session()->get('membro_id'));
     }
 
     public function create()
