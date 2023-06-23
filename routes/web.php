@@ -23,7 +23,7 @@ Route::get('/tarefas/create', [TarefaController::class, 'create'])->name('tarefa
 Route::post('/tarefas', [TarefaController::class, 'store'])->name('tarefas.store');
 Route::get('/tarefas/{tarefaId}', [TarefaController::class, 'show'])->name('tarefas.show');
 Route::put('/tarefas/{tarefaId}', [TarefaController::class, 'edit'])->name('tarefas.edit');
-Route::put('/tarefas/{tarefaId}', [TarefaController::class, 'finalizada-update'])->name('tarefas.finalizada-update');
+Route::put('/tarefas/{tarefaId}', [TarefaController::class, 'finalizada_update'])->name('tarefas.finalizada_update');
 Route::delete('/tarefas/{tarefaId}', [TarefaController::class, 'delete'])->name('tarefas.delete');
 
 
