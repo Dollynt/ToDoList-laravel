@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tarefa;
 use Illuminate\Http\Request;
 use App\Http\Requests\TarefaRequest;
+use Illuminate\Support\Facades\Session;
 
 class TarefaController extends Controller
 {
@@ -21,14 +22,14 @@ class TarefaController extends Controller
 
     public function store(TarefaRequest $request)
     {
-
         $tarefa = new Tarefa();
         $tarefa->nome = $request->nome;
         $tarefa->descricao = $request->descricao;
         $tarefa->finalizada = filter_var($request->finalizada, FILTER_VALIDATE_BOOLEAN);
         $tarefa->data_termino = $request->finalizada ? now() : null;
         $tarefa->prioridade = $request->prioridade ?? 'Baixa';
-        $tarefa->membro_id = 1; //provisório
+        $tarefa->membro_id = $request->session()->get('membro_id');
+
 
         if (!$tarefa->finalizada) {
             $tarefa->data_termino = null; // Define a data de término como null se a tarefa não foi finalizada
