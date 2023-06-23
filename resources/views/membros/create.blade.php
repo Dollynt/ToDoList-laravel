@@ -30,6 +30,17 @@
             @enderror
         </div>
 
+        <div>
+            <label for="senha">Senha:</label>
+            <input type="text" class="@error('senha') is-invalid @enderror" name="senha" required>
+            <!--mensagem de erro de validação-->
+            @error('senha')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+
         <button type="submit" id="button_submit">Cadastrar</button>
     </form>
 </body>
