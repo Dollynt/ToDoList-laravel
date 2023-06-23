@@ -32,7 +32,7 @@
 
         <div>
             <label for="edit-status">Finalizada:</label>
-            <select id="finalizada" name="finalizada" required>
+            <select id="finalizada" name="finalizada" required {{ $tarefa->finalizada ? 'disabled' : '' }}>
                 <option value="False" {{ $tarefa->finalizada ? '' : 'selected' }}>Não</option>
                 <option value="True" {{ $tarefa->finalizada ? 'selected' : '' }}>Sim</option>
             </select>
