@@ -18,9 +18,11 @@ function tarefasMembros() {
 function todasTarefas() {
     var show = document.getElementsByClassName("task-list")[0]
     var button = document.getElementsByClassName("search-container")[0]
+    var select = document.querySelector('.search-container');
     var tasks = document.getElementsByClassName("task")
     show.style.display = 'block'
     button.style.display = 'none'
+    select.value = 'Escolha o membro';
     for (var i = 0; i < tasks.length; i++) {
         var task = tasks[i];
         task.style.display = 'block';
