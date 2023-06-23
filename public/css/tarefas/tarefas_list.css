@@ -8,6 +8,49 @@ h1 {
     text-align: center;
 }
 
+.filter-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.filter-option {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.search-container {
+    display: none;
+    margin-left: 10px;
+}
+
+.search-container input[type="text"] {
+    padding: 5px;
+    margin-right: 5px;
+    width: 200px;
+}
+
+.search-container button {
+    padding: 5px 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background-color: #45a049;
+}
+
+.create-task-container {
+    margin-top: 10px;
+    text-align: center;
+}
+
 .task-list {
     max-width: 600px;
     margin: 0 auto;
@@ -83,11 +126,3 @@ h1 {
     text-align: center;
     width: auto;
 }
-.create-task-container {
-    text-align: center;
-}
-
-.task-description {
-    margin-top: 5px;
-}
-

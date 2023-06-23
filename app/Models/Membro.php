@@ -20,4 +20,11 @@ class Membro extends Model
     {
         return $this->hasMany(Tarefa::class);
     }
+
+    public function getMembros()
+    {
+        $membros = Membro::all();
+
+        return $membros;
+    }
 }

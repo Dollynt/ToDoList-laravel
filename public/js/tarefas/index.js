@@ -18,10 +18,31 @@ function tarefasMembros() {
 function todasTarefas() {
     var show = document.getElementsByClassName("task-list")[0]
     var button = document.getElementsByClassName("search-container")[0]
+    var tasks = document.getElementsByClassName("task")
     show.style.display = 'block'
     button.style.display = 'none'
+    for (var i = 0; i < tasks.length; i++) {
+        var task = tasks[i];
+        task.style.display = 'block';
+      }
+
 }
 
+function showTarefaMembro(membroId) {
+    var show = document.getElementsByClassName("task-list")[0]
+    var tasks = document.getElementsByClassName('task');
+    show.style.display = 'block'
+    for (var i = 0; i < tasks.length; i++) {
+      var task = tasks[i];
+      var taskMemberId = task.getAttribute('data-member-id');
+
+      if (taskMemberId !== membroId) {
+        task.style.display = 'none';
+      } else {
+        task.style.display = 'block';
+      }
+    }
+}
 
 function show(){
     var description_element = event.target.parentNode.parentNode.querySelector('.task-description');

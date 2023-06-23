@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tarefa;
+use App\Models\Membro;
 use Illuminate\Http\Request;
 use App\Http\Requests\TarefaRequest;
 use Illuminate\Support\Facades\Session;
@@ -12,7 +13,8 @@ class TarefaController extends Controller
     public function index()
     {
         $tarefas = Tarefa::all();
-        return view('tarefas.index', compact('tarefas'));
+        $membros = Membro::getMembros();
+        return view('tarefas.index', compact('tarefas', 'membros'));
     }
 
     public function create()
@@ -43,6 +45,7 @@ class TarefaController extends Controller
     public function show($taskId)
     {
         $tarefa = Tarefa::findOrFail($taskId);
+
 
         return view('tarefas.show', compact('tarefa'));
     }
@@ -91,7 +94,6 @@ class TarefaController extends Controller
             return response()->json(['message' => 'Tarefa atualizada com sucesso'], 200);
         }
         return response()->json(['message' => 'Erro ao atualizar tarefa'], 400);
-
 
     }
 }

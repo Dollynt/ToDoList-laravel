@@ -26,16 +26,18 @@
         <div class="filter-option">
             <input type="radio" id="tarefas-membros" name="filtro-tarefas" onclick="tarefasMembros()">
             <label for="tarefas-membros">Tarefas dos Membros</label>
-            <div class="search-container">
-                <input type="text" id="search-membro" placeholder="Pesquisar Membro">
-                <button onclick="searchMembro()">Pesquisar</button>
-            </div>
+            <select class="search-container" onchange="showTarefaMembro(this.value)">
+                <option style="display: none">Escolha o membro</option>
+                @foreach ($membros as $membro)
+                    <option value="{{$membro->id}}"> {{$membro->email}}</option>
+                @endforeach
+            </select>
         </div>
     </div>
 
     <div class="task-list">
         @foreach($tarefas as $tarefa)
-            <div class="task">
+            <div class="task" data-member-id="{{ $tarefa->membro_id }}">
                 <div class="task-name">{{ $tarefa->nome }}</div>
                 <div class="task-priority">Prioridade: {{ $tarefa->prioridade }}</div>
                 <form action="{{ route('tarefas.finalizada_update', ['tarefaId' => $tarefa->id]) }}" method="POST" class="task-form">
