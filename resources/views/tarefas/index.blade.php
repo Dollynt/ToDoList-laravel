@@ -22,7 +22,7 @@
             <div class="task">
                 <div class="task-name">{{ $tarefa->nome }}</div>
                 <div class="task-priority">Prioridade: {{ $tarefa->prioridade }}</div>
-                <form action="{{ route('tarefas.edit', ['tarefaId' => $tarefa->id]) }}" method="POST" class="task-form">
+                <form action="{{ route('tarefas.finalizada_update', ['tarefaId' => $tarefa->id]) }}" method="POST" class="task-form">
                     @csrf
                     @method('PUT')
                     <label for="edit-status" class="task-status">Finalizada:</label>

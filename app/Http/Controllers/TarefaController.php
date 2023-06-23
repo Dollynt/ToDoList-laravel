@@ -72,4 +72,19 @@ class TarefaController extends Controller
         }
         return response()->json(['message' => 'Erro ao atualizar tarefa'], 400);
     }
+
+    public function finalizada_update(Request $request, $taskId)
+    {
+        $tarefa = Tarefa::findOrFail($taskId);
+        $tarefa->finalizada = filter_var($request->finalizada, FILTER_VALIDATE_BOOLEAN);
+        $tarefa->data_termino = now();
+
+        $save = $tarefa->save();
+        if ($save) {
+            return response()->json(['message' => 'Tarefa atualizada com sucesso'], 200);
+        }
+        return response()->json(['message' => 'Erro ao atualizar tarefa'], 400);
+
+
+    }
 }
