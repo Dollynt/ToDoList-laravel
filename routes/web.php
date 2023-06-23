@@ -15,6 +15,9 @@ use App\Http\Controllers\HomePageController;
 |
 */
 Route::get('/homepage', [HomePageController::class, 'index'])->name('homepage.index');
+Route::get('/login', [LoginController::class, 'index'])->name('homepage.index');
+Route::post('/login', [LoginController::class, 'login'])->name('membros.login');
+
 Route::get('/membros', [MembroController::class, 'index'])->name('membros.index');
 Route::get('/membros/create', [MembroController::class, 'create'])->name('membros.create');
 Route::post('/membros', [MembroController::class, 'store'])->name('membros.store');
