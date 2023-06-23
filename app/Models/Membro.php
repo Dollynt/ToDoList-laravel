@@ -13,6 +13,7 @@ class Membro extends Model
     protected $fillable = [
         'email',
         'nome',
+        'senha',
     ];
 
     public function tarefas()
