@@ -32,7 +32,7 @@
 
         <div>
             <label for="senha">Senha:</label>
-            <input type="text" class="@error('senha') is-invalid @enderror" name="senha" required>
+            <input type="password" class="@error('senha') is-invalid @enderror" name="senha" required>
             <!--mensagem de erro de validação-->
             @error('senha')
                 <span class="invalid-feedback" role="alert">
