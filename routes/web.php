@@ -25,6 +25,8 @@ Route::middleware(['custom.auth'])->group(function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/homepage', [HomePageController::class, 'index'])->name('homepage.index');
     Route::get('/membros', [MembroController::class, 'index'])->name('membros.index');
+    Route::get('/membros/{membroId}', [MembroController::class, 'edit'])->name('membros.edit');
+    Route::put('/membros/{membroId', [MembroController::class, 'update'])->name('membros.update');
     Route::get('/tarefas', [TarefaController::class, 'index'])->name('tarefas.index');
     Route::get('/tarefas/create', [TarefaController::class, 'create'])->name('tarefas.create');
     Route::post('/tarefas', [TarefaController::class, 'store'])->name('tarefas.store');
