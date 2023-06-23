@@ -12,8 +12,25 @@
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/tarefas/tarefas_list.css') }}">
     <h1>Listagem de Tarefas</h1>
+
     <div class="create-task-container">
         <a href="{{ route('tarefas.create') }}" class="create-task-link">Criar Nova Tarefa</a>
+    </div>
+
+    <div class="filter-container">
+        <div class="filter-option">
+            <input type="radio" id="todas-tarefas" name="filtro-tarefas" onclick="todasTarefas()" checked>
+            <label for="todas-tarefas">Todas as Tarefas</label>
+        </div>
+
+        <div class="filter-option">
+            <input type="radio" id="tarefas-membros" name="filtro-tarefas" onclick="tarefasMembros()">
+            <label for="tarefas-membros">Tarefas dos Membros</label>
+            <div class="search-container">
+                <input type="text" id="search-membro" placeholder="Pesquisar Membro">
+                <button onclick="searchMembro()">Pesquisar</button>
+            </div>
+        </div>
     </div>
 
     <div class="task-list">

@@ -7,6 +7,21 @@ function finalizadaChange(selectElement) {
     }
 }
 
+function tarefasMembros() {
+    var hide = document.getElementsByClassName("task-list")[0]
+    var button = document.getElementsByClassName("search-container")[0]
+    hide.style.display = 'none'
+    button.style.display = 'block'
+
+}
+
+function todasTarefas() {
+    var show = document.getElementsByClassName("task-list")[0]
+    var button = document.getElementsByClassName("search-container")[0]
+    show.style.display = 'block'
+    button.style.display = 'none'
+}
+
 
 function show(){
     var description_element = event.target.parentNode.parentNode.querySelector('.task-description');
