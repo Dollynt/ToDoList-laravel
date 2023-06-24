@@ -1,7 +1,15 @@
 <link rel="stylesheet" href="{{asset('css/membros/membros_create.css')}}">
-<head>
-    <title>Cadastro de Membro</title>
-</head>
+
+@if (session()->has('membro_id'))
+    @extends('nav_bar')
+    @section('title', 'Cadastro de Membro')
+    @section('content')
+@else
+    <head>
+        <title>Cadastro de Membro</title>
+    </head>
+@endif
+
 <body>
     <h1 id="cadastro">Cadastro de Membro</h1>
 
@@ -44,3 +52,7 @@
         <button type="submit" id="button_submit">Cadastrar</button>
     </form>
 </body>
+
+@if (session()->has('membro_id'))
+    @endsection
+@endif
