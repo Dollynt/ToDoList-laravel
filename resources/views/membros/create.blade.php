@@ -22,7 +22,7 @@
         </div>
     @endif
     <h1 id="cadastro">Cadastro de Membro</h1>
-
+    <div class="container">
     <form method="POST" action="/membros" id="form">
         @csrf
 
@@ -61,7 +61,12 @@
 
         <button type="submit" id="button_submit">Cadastrar</button>
     </form>
+    @if (session()->has('membro_id') == false)
+        <a href="/login">Login</a>
+    @endif
+    </div>
 </body>
+
 
 @if (session()->has('membro_id'))
     @endsection
