@@ -37,11 +37,6 @@
                 <option value="False">Não</option>
                 <option value="True">Sim</option>
             </select>
-            @error('descricao')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
         </div>
 
         <div>
@@ -51,11 +46,6 @@
                 <option value="media">Média</option>
                 <option value="alta">Alta</option>
             </select>
-            @error('descricao')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
         </div>
 
         <button type="submit" id="button_submit">Cadastrar</button>
