@@ -62,8 +62,14 @@ class TarefaController extends Controller
     {
         $tarefa = Tarefa::findOrFail($taskId);
         $save = $delete = $tarefa->delete();
+
+        $previousUrl = url()->previous();
         if($save) {
-            return back()->with('success', 'Tarefa excluída com sucesso');
+            if (strpos($previousUrl, 'tarefas/'.$taskId) !== false) {
+                return redirect()->route('tarefas.list')->with('success', 'Tarefa excluída com sucesso');
+            } else {
+                return back()->with('success', 'Tarefa excluída com sucesso');
+            }
         }
         return back()->with('error', 'Erro ao excluir tarefa');
     }
@@ -85,10 +91,10 @@ class TarefaController extends Controller
 
         $save = $tarefa->save();
 
-        if ($save) {
-            return response()->json(['message' => 'Tarefa atualizada com sucesso'], 200);
+        if($save) {
+            return back()->with('success', 'Tarefa atualizada com sucesso');
         }
-        return response()->json(['message' => 'Erro ao atualizar tarefa'], 400);
+        return back()->with('error', 'Erro ao atualizar tarefa');
     }
 
     //função de atualizar apenas se tarefa foi finalizada
