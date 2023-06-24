@@ -40,11 +40,11 @@ class MembroController extends Controller
     function edit(Request $request, $membroId) {
         $membro = Membro::findOrFail($membroId);
 
-        return view('membros.edit', compact('membro'));
+        return view('membros.edit', compact('membro'))->with('sessionId', session()->get('membro_id'));
     }
 
     function update() {
-        return
+        return;
     }
 
 }
