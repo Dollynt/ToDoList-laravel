@@ -17,6 +17,7 @@ class TarefaController extends Controller
         return view('tarefas.index', compact('tarefas', 'membros'))->with('membroId', session()->get('membro_id'));
     }
 
+    //função que retorna view de cadastro de tarefas
     public function create()
     {
         return view('tarefas.create');
