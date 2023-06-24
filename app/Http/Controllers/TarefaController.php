@@ -60,11 +60,11 @@ class TarefaController extends Controller
     public function delete($taskId)
     {
         $tarefa = Tarefa::findOrFail($taskId);
-        $delete = $tarefa->delete();
-        if($delete) {
-            return response()->json(['message' => 'Tarefa excluida com sucesso'], 200);
+        $save = $delete = $tarefa->delete();
+        if($save) {
+            return back()->with('success', 'Tarefa excluída com sucesso');
         }
-        return response()->json(['message' => 'Erro ao excluir tarefa'], 400);
+        return back()->with('error', 'Erro ao excluir tarefa');
     }
 
     public function edit(TarefaRequest $request, $taskId)
@@ -97,10 +97,10 @@ class TarefaController extends Controller
         $tarefa->data_termino = now();
 
         $save = $tarefa->save();
-        if ($save) {
-            return response()->json(['message' => 'Tarefa atualizada com sucesso'], 200);
+        if($save) {
+            return back()->with('success', 'Tarefa atualizada com sucesso');
         }
-        return response()->json(['message' => 'Erro ao atualizar tarefa'], 400);
+        return back()->with('error', 'Erro ao atualizar tarefa');
 
     }
 }

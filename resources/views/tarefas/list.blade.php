@@ -11,8 +11,18 @@
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/tarefas/tarefas_list.css') }}">
-    <h1>Lista de Tarefas</h1>
+    @if(session('success'))
+        <div class="alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+    @if(session('error'))
+        <div class="alert-error">
+            {{ session('error') }}
+        </div>
+    @endif
 
+    <h1>Lista de Tarefas</h1>
     <div class="create-task-container">
         <a href="{{ route('tarefas.create') }}" class="create-task-link">Criar Nova Tarefa</a>
     </div>
