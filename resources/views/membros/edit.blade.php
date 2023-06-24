@@ -12,7 +12,7 @@
                 @method('PUT')
                 <div>
                     <label for="nome">Nome:</label>
-                    <input type="text" class="@error('nome') is-invalid @enderror" name="nome" value="{{$membro->nome}}">
+                    <input type="text" class="@error('nome') is-invalid @enderror" name="nome" value="{{$membro->nome}}" required>
                     <!--mensagem de erro de validação-->
                     @error('nome')
                         <span class="invalid-feedback" role="alert">
@@ -23,7 +23,7 @@
 
                 <div>
                     <label for="email">E-mail:</label>
-                    <input type="email" class="@error('email') is-invalid @enderror" name="email" value="{{$membro->email}}">
+                    <input type="email" class="@error('email') is-invalid @enderror" name="email" value="{{$membro->email}}" required>
                     <!--mensagem de erro de validação-->
                     @error('email')
                         <span class="invalid-feedback" role="alert">

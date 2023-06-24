@@ -43,8 +43,22 @@ class MembroController extends Controller
         return view('membros.edit', compact('membro'))->with('sessionId', session()->get('membro_id'));
     }
 
-    function update() {
-        return;
+    function update(MembroRequest $request, $membroId) {
+        $membro = Membro::findOrFail($membroId);
+
+        $membro->nome = $request->nome;
+        if ($request->email !== $membro->email) {
+            $membro->email = $request->email;
+        }
+        if (!empty($request->senha)) {
+            $membro->senha = Hash::make($request->senha);
+        }
+
+        $save = $membro->save();
+        if($save) {
+            return response()->json(['message' => 'Membro atualizado com sucesso!', 'membro' => $membro], 201);
+        }
+        return response()->json(['message' => 'Erro ao cadastrar membro!'], 400);
     }
 
 }
