@@ -3,7 +3,7 @@
 Esta é uma aplicação de cadastro de tarefas, onde pode-se editar a tarefa, se foi finalizada ou não e a data do término.
 
 ## Instalação
-Certifique-se de que seu ambiente atenda aos requisitos necessários para executar o Laravel. Isso inclui ter o PHP instalado, um servidor web como o Apache ou Nginx, o banco de dados MySQL e o Composer instalado. Verifique a documentação oficial do Laravel para obter os requisitos detalhados. [Documentação Laravel]
+Certifique-se de que seu ambiente atenda aos requisitos necessários para executar o Laravel. Isso inclui ter o PHP instalado, um servidor web como o Apache ou Nginx, o banco de dados MySQL e o Composer instalado. Verifique a documentação oficial do Laravel para obter os requisitos detalhados.
 (https://laravel.com/docs/10.x/readme)
 
 Clone o repositório 
@@ -44,8 +44,7 @@ php artisan serve
 ```
 O servidor estará disponível em 'http://localhost:8000'.
 
-Para ir para a página principal, vá na rota [http://localhost:8000/homepage] 
-(http://localhost:8000/homepage)
+Para ir para a página principal, vá na rota http://localhost:8000/homepage
 
 ## Rotas
 
