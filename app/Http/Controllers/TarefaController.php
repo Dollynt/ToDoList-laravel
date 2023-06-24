@@ -37,9 +37,11 @@ class TarefaController extends Controller
             $tarefa->data_termino = null; // Define a data de término como null se a tarefa não foi finalizada
         }
 
-        $tarefa->save();
-
-        return response()->json(['message' => 'Tarefa cadastrada com sucesso!', 'tarefa' => $tarefa], 201);
+        $save = $tarefa->save();
+        if($save) {
+            return back()->with('success', 'Tarefa criada com sucesso');
+        }
+        return back()->with('error', 'Erro ao criar tarefa');
     }
 
     public function show($taskId)

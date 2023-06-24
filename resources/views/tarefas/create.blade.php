@@ -4,6 +4,16 @@
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/tarefas/tarefas_create.css') }}">
+    @if(session('success'))
+        <div class="alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+    @if(session('error'))
+        <div class="alert-error">
+            {{ session('error') }}
+        </div>
+    @endif
     <h1 id="cadastro">Cadastro de Tarefas</h1>
 
     <form method="POST" action="/tarefas" id="form">
