@@ -7,11 +7,11 @@
 
 @extends('nav_bar/nav_bar')
 
-@section('title', 'Listagem de Tarefas')
+@section('title', 'Lista de Tarefas')
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/tarefas/tarefas_list.css') }}">
-    <h1>Listagem de Tarefas</h1>
+    <h1>Lista de Tarefas</h1>
 
     <div class="create-task-container">
         <a href="{{ route('tarefas.create') }}" class="create-task-link">Criar Nova Tarefa</a>
