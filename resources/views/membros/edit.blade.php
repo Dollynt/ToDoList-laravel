@@ -1,10 +1,15 @@
-@extends('nav_bar')
+@extends('nav_bar/nav_bar')
 
 @section('title', 'Edição de Tarefa')
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/membros/membros_edit.css') }}">
     @if ($membro->id == $sessionId)
+        @if(session('error'))
+            <div class="alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
         <h1 id="cadastro">Edição de Membro</h1>
         <div id="form">
             <form method="POST" action="/membros/{{$membro->id}}" id="edit-form">

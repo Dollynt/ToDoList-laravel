@@ -3,6 +3,12 @@
     <title>LOGIN</title>
 </head>
 <body>
+    @if(session('success'))
+        <div class="alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <div class="container">
         <h1 id="login" class="center-text">LOGIN</h1>
 
