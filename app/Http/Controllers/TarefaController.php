@@ -28,7 +28,7 @@ class TarefaController extends Controller
         $tarefa = new Tarefa();
         $tarefa->nome = $request->nome;
         $tarefa->descricao = $request->descricao;
-        $tarefa->finalizada = filter_var($request->finalizada, FILTER_VALIDATE_BOOLEAN);
+        $tarefa->finalizada = filter_var($request->finalizada, FILTER_VALIDATE_BOOLEAN);//filtro para tranformar true e false em 0 e 1
         $tarefa->data_termino = $request->finalizada ? now() : null;
         $tarefa->prioridade = $request->prioridade ?? 'Baixa';
         $tarefa->membro_id = $request->session()->get('membro_id');
@@ -63,24 +63,28 @@ class TarefaController extends Controller
         $tarefa = Tarefa::findOrFail($taskId);
         $save = $delete = $tarefa->delete();
 
+        //verifica qual a url anterior
         $previousUrl = url()->previous();
         if($save) {
+            //se estava na página de edição, retorna para tarefas/list
             if (strpos($previousUrl, 'tarefas/'.$taskId) !== false) {
                 return redirect()->route('tarefas.list')->with('success', 'Tarefa excluída com sucesso');
             } else {
+                //se não, estava em tarefas/list)
                 return back()->with('success', 'Tarefa excluída com sucesso');
             }
         }
         return back()->with('error', 'Erro ao excluir tarefa');
     }
 
+    //função para atualizar tarefa
     public function update(TarefaRequest $request, $taskId)
     {
         $tarefa = Tarefa::findOrFail($taskId);
 
         $tarefa->nome = $request->nome;
         $tarefa->descricao = $request->descricao;
-        $tarefa->finalizada = filter_var($request->finalizada, FILTER_VALIDATE_BOOLEAN);
+        $tarefa->finalizada = filter_var($request->finalizada, FILTER_VALIDATE_BOOLEAN);//filtro para tranformar true e false em 0 e 1
         $tarefa->data_termino = $request->finalizada ? now() : null;
         $tarefa->prioridade = $request->prioridade;
 
