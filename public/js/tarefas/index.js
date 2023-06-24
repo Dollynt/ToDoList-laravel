@@ -1,3 +1,4 @@
+//função para aparecer botao de salvar ao mudar se tarefa foi finalziada
 function finalizadaChange(selectElement) {
     var saveButton = selectElement.parentElement.querySelector('.save-button');
     if (selectElement.value === "{{ $tarefa->finalizada }}") {
@@ -7,6 +8,7 @@ function finalizadaChange(selectElement) {
     }
 }
 
+//função para ocultar todas as tarefas e aparecer select de membros
 function tarefasMembros() {
     var hide = document.getElementsByClassName("task-list")[0]
     var button = document.getElementsByClassName("search-container")[0]
@@ -15,6 +17,7 @@ function tarefasMembros() {
 
 }
 
+//função para aparecer todas as tarefas
 function todasTarefas() {
     var show = document.getElementsByClassName("task-list")[0]
     var button = document.getElementsByClassName("search-container")[0]
@@ -22,14 +25,15 @@ function todasTarefas() {
     var tasks = document.getElementsByClassName("task")
     show.style.display = 'block'
     button.style.display = 'none'
-    select.value = 'Escolha o membro';
+    select.value = 'Escolha o membro'; //reseta o select
+
     for (var i = 0; i < tasks.length; i++) {
         var task = tasks[i];
         task.style.display = 'block';
       }
-
 }
 
+//função para mostrar tarefas do membro selecionado
 function showTarefaMembro(membroId) {
     var show = document.getElementsByClassName("task-list")[0]
     var tasks = document.getElementsByClassName('task');
@@ -46,6 +50,7 @@ function showTarefaMembro(membroId) {
     }
 }
 
+//função que faz aparecer descrição e data termino
 function show(){
     var description_element = event.target.parentNode.parentNode.querySelector('.task-description');
     var termino_element = event.target.parentNode.parentNode.querySelector('.task-finalized');
@@ -53,6 +58,8 @@ function show(){
     var index = dados.findIndex(task => task.id === (taskId))
     var description = dados[index].descricao
     var data_termino = dados[index].data_termino
+
+    //se descrição e data termino forem null, ficarem vazias
     if (description === null){
         description = ''
     }

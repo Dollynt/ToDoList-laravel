@@ -57,6 +57,7 @@ class TarefaController extends Controller
         return view('tarefas.show', compact('tarefa'));
     }
 
+    //função de deletar tarefa
     public function delete($taskId)
     {
         $tarefa = Tarefa::findOrFail($taskId);
@@ -90,6 +91,7 @@ class TarefaController extends Controller
         return response()->json(['message' => 'Erro ao atualizar tarefa'], 400);
     }
 
+    //função de atualizar apenas se tarefa foi finalizada
     public function finalizada_update(Request $request, $taskId)
     {
         $tarefa = Tarefa::findOrFail($taskId);
