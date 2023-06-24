@@ -1,5 +1,5 @@
 <!-- homepage.blade.php -->
-@extends('nav_bar')
+@extends('nav_bar/nav_bar')
 
 @section('title', 'Home')
 

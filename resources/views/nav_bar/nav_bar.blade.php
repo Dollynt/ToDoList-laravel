@@ -1,6 +1,6 @@
 <head>
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="{{ asset('css/homepage/homepage.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/nav_bar/nav_bar.css') }}">
 </head>
 <body>
     @if (session()->has('membro_id'))
