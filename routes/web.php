@@ -24,7 +24,6 @@ Route::post('/membros', [MembroController::class, 'store'])->name('membros.store
 Route::middleware(['custom.auth'])->group(function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/homepage', [HomePageController::class, 'index'])->name('homepage.index');
-    Route::get('/membros', [MembroController::class, 'index'])->name('membros.index');
     Route::get('/membros/{membroId}', [MembroController::class, 'edit'])->name('membros.edit');
     Route::put('/membros/{membroId}', [MembroController::class, 'update'])->name('membros.update');
     Route::delete('/membros/{membroId}', [MembroController::class, 'delete'])->name('membros.delete');
