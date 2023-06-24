@@ -28,7 +28,7 @@ Route::middleware(['custom.auth'])->group(function () {
     Route::get('/membros/{membroId}', [MembroController::class, 'edit'])->name('membros.edit');
     Route::put('/membros/{membroId}', [MembroController::class, 'update'])->name('membros.update');
     Route::delete('/membros/{membroId}', [MembroController::class, 'delete'])->name('membros.delete');
-    Route::get('/tarefas', [TarefaController::class, 'index'])->name('tarefas.index');
+    Route::get('/tarefas', [TarefaController::class, 'list'])->name('tarefas.list');
     Route::get('/tarefas/create', [TarefaController::class, 'create'])->name('tarefas.create');
     Route::post('/tarefas', [TarefaController::class, 'store'])->name('tarefas.store');
     Route::get('/tarefas/{tarefaId}', [TarefaController::class, 'show'])->name('tarefas.show');

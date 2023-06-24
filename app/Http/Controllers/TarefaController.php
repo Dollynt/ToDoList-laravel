@@ -10,11 +10,11 @@ use Illuminate\Support\Facades\Session;
 
 class TarefaController extends Controller
 {
-    public function index()
+    public function list()
     {
         $tarefas = Tarefa::all();
         $membros = Membro::getMembros();
-        return view('tarefas.index', compact('tarefas', 'membros'))->with('membroId', session()->get('membro_id'));
+        return view('tarefas.list', compact('tarefas', 'membros'))->with('membroId', session()->get('membro_id'));
     }
 
     //função que retorna view de cadastro de tarefas
