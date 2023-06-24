@@ -80,7 +80,7 @@
                     <button class="action-button" onclick="show()">Visualizar</button>
                     <!-- verifica se membro logado é dono da tarefa -->
                     @if ($tarefa->membro_id === $membroId)
-                        <a href="{{ route('tarefas.show', ['tarefaId' => $tarefa->id]) }}" class="edit-link">Editar</a>
+                        <a href="{{ route('tarefas.edit', ['tarefaId' => $tarefa->id]) }}" class="edit-link">Editar</a>
                         <form method="POST" action="/tarefas/{{$tarefa->id}}"  class="delete-form">
                             @csrf
                             @method('DELETE')

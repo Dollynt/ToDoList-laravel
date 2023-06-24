@@ -3,7 +3,7 @@
 @section('title', 'Edição de Tarefa')
 
 @section('content')
-    <link rel="stylesheet" href="{{ asset('css/tarefas/tarefas_show.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/tarefas/tarefas_edit.css') }}">
     <h1 id="cadastro">Edição de Tarefa</h1>
     <div id="form">
         <form method="POST" action="/tarefas/{{$tarefa->id}}" id="edit-form">

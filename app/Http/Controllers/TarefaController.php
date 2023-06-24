@@ -45,7 +45,7 @@ class TarefaController extends Controller
         return back()->with('error', 'Erro ao criar tarefa');
     }
 
-    public function show($taskId)
+    public function edit($taskId)
     {
         $tarefa = Tarefa::findOrFail($taskId);
 
@@ -54,7 +54,7 @@ class TarefaController extends Controller
             abort(403);
         }
 
-        return view('tarefas.show', compact('tarefa'));
+        return view('tarefas.edit', compact('tarefa'));
     }
 
     //função de deletar tarefa
@@ -68,7 +68,7 @@ class TarefaController extends Controller
         return back()->with('error', 'Erro ao excluir tarefa');
     }
 
-    public function edit(TarefaRequest $request, $taskId)
+    public function update(TarefaRequest $request, $taskId)
     {
         $tarefa = Tarefa::findOrFail($taskId);
 
