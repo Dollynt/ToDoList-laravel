@@ -11,6 +11,16 @@
 @endif
 
 <body>
+    @if(session('success'))
+        <div class="alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+    @if(session('error'))
+        <div class="alert-error">
+            {{ session('error') }}
+        </div>
+    @endif
     <h1 id="cadastro">Cadastro de Membro</h1>
 
     <form method="POST" action="/membros" id="form">

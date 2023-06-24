@@ -33,9 +33,9 @@ class MembroController extends Controller
         $save = $membro->save();
 
         if($save) {
-            return response()->json(['message' => 'Membro cadastrado com sucesso!', 'membro' => $membro], 201);
+            return back()->with('success', 'Membro cadastrado com sucesso');
         }
-        return response()->json(['message' => 'Erro ao cadastrar membro!'], 400);
+        return back()->with('error', 'Erro ao cadastrar membro');
     }
 
     public function edit(Request $request, $membroId) {
