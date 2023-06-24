@@ -12,10 +12,9 @@ class LoginController extends Controller
 {
     public function index()
     {
-        // if (session()->has('membro_id')) {
-        //     // O membro está autenticado, redirecione para a página inicial
-        //     return redirect('/homepage');
-        // }
+         if (session()->has('membro_id')) {
+             return redirect('/homepage');
+         }
         return view('login.index');
     }
 
