@@ -19,7 +19,7 @@
 
     <h1 id="cadastro">Edição de Tarefa</h1>
     <div id="form">
-        <form method="POST" action="/tarefas/{{$tarefa->id}}" id="edit-form">
+        <form method="POST" action="{{ route('tarefas.update', ['tarefaId' => $tarefa->id]) }}" id="edit-form">
             @csrf
             @method('PUT')
             <div>
