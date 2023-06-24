@@ -14,6 +14,14 @@ class TarefaRequest extends FormRequest
         return true;
     }
 
+    public function messages()
+    {
+        return [
+            'nome.min' => 'O campo nome deve ter no mínimo :min caracteres.',
+            'descricao.max' => 'Descrição só pode ter 140 caracteres.',
+        ];
+    }
+
     public function rules()
     {
         //regras de validação
@@ -26,11 +34,4 @@ class TarefaRequest extends FormRequest
         ];
     }
 
-    protected function failedValidation(Validator $validator)
-    {
-
-        throw new HttpResponseException(response()->json([
-            'errors' => $validator->errors(),
-        ], 422));
-    }
 }
