@@ -5,6 +5,11 @@
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/membros/membros_edit.css') }}">
     @if ($membro->id == $sessionId)
+        @if(session('success'))
+            <div class="alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
         @if(session('error'))
             <div class="alert-danger">
                 {{ session('error') }}

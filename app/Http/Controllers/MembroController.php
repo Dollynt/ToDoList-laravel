@@ -57,9 +57,9 @@ class MembroController extends Controller
 
         $save = $membro->save();
         if($save) {
-            return response()->json(['message' => 'Membro atualizado com sucesso!', 'membro' => $membro], 201);
+            return back()->with('success', 'Membro atualizado com sucesso');
         }
-        return response()->json(['message' => 'Erro ao cadastrar membro!'], 400);
+        return back()->with('error', 'Erro ao atualizar membro');
     }
 
     public function delete(Request $request, $membroId)
