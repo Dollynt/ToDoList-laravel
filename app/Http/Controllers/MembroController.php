@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Membro;
+use App\Models\Tarefa;
 use Illuminate\Http\Request;
 use App\Http\Requests\MembroRequest;
 use Illuminate\Support\Facades\Hash;
@@ -37,13 +38,13 @@ class MembroController extends Controller
         return response()->json(['message' => 'Erro ao cadastrar membro!'], 400);
     }
 
-    function edit(Request $request, $membroId) {
+    public function edit(Request $request, $membroId) {
         $membro = Membro::findOrFail($membroId);
 
         return view('membros.edit', compact('membro'))->with('sessionId', session()->get('membro_id'));
     }
 
-    function update(MembroRequest $request, $membroId) {
+    public function update(MembroRequest $request, $membroId) {
         $membro = Membro::findOrFail($membroId);
 
         $membro->nome = $request->nome;
@@ -61,5 +62,23 @@ class MembroController extends Controller
         return response()->json(['message' => 'Erro ao cadastrar membro!'], 400);
     }
 
+    public function delete(Request $request, $membroId)
+    {
+        $membro = Membro::findOrFail($membroId);
+        $tarefas = Tarefa::where('membro_id', $membroId)->get();
+
+        //excluir tarefas do membro
+        foreach ($tarefas as $tarefa) {
+            $tarefa->delete();
+        }
+
+        // Exclua o membro
+        $delete = $membro->delete();
+        if ($delete) {
+            session()->forget('membro_id');
+            return redirect('/login')->with('success', 'Membro excluído com sucesso');
+        }
+        return back()->with('error', 'Erro ao excluir membro');
+    }
 }
 
