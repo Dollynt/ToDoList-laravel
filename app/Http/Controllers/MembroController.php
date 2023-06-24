@@ -10,12 +10,6 @@ use Illuminate\Support\Facades\Hash;
 
 class MembroController extends Controller
 {
-    public function index()
-    {
-        $membros = Membro::all();
-        return view('membros.index', compact('membros'));
-    }
-
     public function create()
     {
         return view('membros.create');
@@ -23,7 +17,6 @@ class MembroController extends Controller
 
     public function store(MembroRequest  $request)
     {
-        // Validação dos campos
         $membro = new Membro;
         $membro->nome = $request->nome;
         $membro->email = $request->email;
