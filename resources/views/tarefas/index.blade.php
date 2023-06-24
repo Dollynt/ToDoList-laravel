@@ -5,7 +5,7 @@
     var dados = JSON.parse(atob("<?php echo $obfuscatedData; ?>"));
 </script>
 
-@extends('nav_bar')
+@extends('nav_bar/nav_bar')
 
 @section('title', 'Listagem de Tarefas')
 

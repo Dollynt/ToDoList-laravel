@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="{{asset('css/membros/membros_create.css')}}">
 
 @if (session()->has('membro_id'))
-    @extends('nav_bar')
+    @extends('nav_bar/nav_bar')
     @section('title', 'Cadastro de Membro')
     @section('content')
 @else
